@@ -5,30 +5,30 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(thames LANGUAGES C)
 
 add_executable(thames
-    thames/_version.h
-    thames/_version.c
-    thames/appinfo.h
-    thames/cmdline.c
-    thames/errcheck.c
-    thames/extensions.c
-    thames/isis.c
-    thames/isisfile.c
-    thames/isisload.c
-    thames/thames.c
-    thames/utils.c
-    thames/z80.c
-    thames/cbops.h
-    thames/cmdline.h
+    src/_version.h
+    src/_version.c
+    src/appinfo.h
+    src/cmdline.c
+    src/errcheck.c
+    src/extensions.c
+    src/isis.c
+    src/isisfile.c
+    src/isisload.c
+    src/thames.c
+    src/utils.c
+    src/z80.c
+    src/cbops.h
+    src/cmdline.h
     ${CMAKE_CURRENT_BINARY_DIR}/config.h
-    thames/edops.h
-    thames/errcheck.h
-    thames/extensions.h
-    thames/isis.h
-    thames/isisfile.h
-    thames/isisload.h
-    thames/thames.h
-    thames/z80.h
-    thames/z80ops.h
+    src/edops.h
+    src/errcheck.h
+    src/extensions.h
+    src/isis.h
+    src/isisfile.h
+    src/isisload.h
+    src/thames.h
+    src/z80.h
+    src/z80ops.h
     )
 
 target_compile_options(thames
@@ -43,8 +43,8 @@ target_include_directories(thames PUBLIC
 add_custom_target(
 getversion
 COMMAND perl ${thames_SOURCE_DIR}/Scripts/getVersion.pl -W
-BYPRODUCTS ${thames_SOURCE_DIR}/thames/_version.h
-WORKING_DIRECTORY ${thames_SOURCE_DIR}/thames
+BYPRODUCTS ${thames_SOURCE_DIR}/src/_version.h
+WORKING_DIRECTORY ${thames_SOURCE_DIR}/src
 )
 
 add_dependencies(thames getversion)
